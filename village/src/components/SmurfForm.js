@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import axios from "axios";
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     };
   }
 
@@ -14,12 +15,22 @@ class SmurfForm extends Component {
     event.preventDefault();
     // add code to create the smurf using the api
 
+    axios
+      .post(`http://localhost:3333/smurfs`, this.state)
+      .then(response => {
+        this.props.sendFormData(response.data);
+        this.setState({ redirect: true });
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
+
     this.setState({
-      name: '',
-      age: '',
-      height: ''
+      name: "",
+      age: "",
+      height: ""
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
