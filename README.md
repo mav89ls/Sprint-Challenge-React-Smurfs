@@ -47,7 +47,7 @@ Server side routing is when the brower makes an HTTP GET request to a certain UR
 
 - [x ] Mention three tools we can use to make AJAX requests.
 
-You can use Axios, you can use fetch, you can also use superagent, or jQuery.
+You can use Axios, you can use fetch, you can also use superagent, or jQuery. We didnt really cover the last two in our projects though so maybe you are referring to fetch, .catch(), and .then()
 
 ## Project Set Up
 
